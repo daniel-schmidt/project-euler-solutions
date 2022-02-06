@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ranges>
+#include <vector>
 
 namespace prob_1 
 {
@@ -28,10 +30,29 @@ int get_by_loop()
     return result;
 }
 
+
+// Calculate the sum in a single loop using views to filter out all integers not
+// divisible by 3 or 5.
+int get_by_ranges()
+{
+    using namespace std::views;
+
+    auto div_by_3_or_5 = [](int num) {
+        return (num % 3 == 0) || (num % 5 == 0);
+    };
+
+    int result = 0;
+    for(int i : iota(1, 1000) | filter(div_by_3_or_5)) {
+        result +=i;
+    }
+    return result;
+}
+
 }
 
 
 int main(int, char**) {
     std::cout << prob_1::get_precalculated() << std::endl;
     std::cout << prob_1::get_by_loop() << std::endl;
+    std::cout << prob_1::get_by_ranges() << std::endl;
 }
