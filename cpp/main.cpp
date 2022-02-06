@@ -25,7 +25,9 @@ int get_by_loop()
         result += i;
     }
     for(int i = 5; i < 1000; i+=5) {
-        result +=i;
+        if(i%3 != 0) {
+            result +=i;
+        }
     }
     return result;
 }
