@@ -11,9 +11,11 @@ namespace prob_1
 
 // Returns the hand-calculated value obtained by the Gaussian sum formula:
 // 3 * sum_{i=1}^{333} i + 5 * sum_{i=1}^{199} i = 3 * 333 * 167 + 5 * 199 * 100
+// To compensate the numbers divisible by both 3 and 5, we subtract 
+// 15 * sum_{i=1}^{66} i = 15 * 33 * 67
 int get_precalculated() 
 {
-    return 266333;
+    return 3 * 333 * 167 + 5 * 199 * 100 - 15 * 33 * 67;
 }
 
 // Calculate the sum with two traditional for-loops which increment in steps of 3
