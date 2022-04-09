@@ -12,11 +12,12 @@
 (defn prob_1_filtered
   "Problem 1: filter a range and reduce it"
   []
-  (def div_by_3_or_5?
-    (fn [x]
-      (or (== (mod x 3) 0)
-          (== (mod x 5) 0))))
-  (reduce + (filter div_by_3_or_5? (range 1000))))
+  (let [div_by_3_or_5?
+        (fn [x]
+          (or (== (mod x 3) 0)
+              (== (mod x 5) 0)))]
+
+    (reduce + (filter div_by_3_or_5? (range 1000)))))
 
 
 (defn -main
@@ -25,4 +26,3 @@
   (println "Solution to problem 1:")
   (println (prob_1_precalculated))
   (println (prob_1_filtered)))
-
