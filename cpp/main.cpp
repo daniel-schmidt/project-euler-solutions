@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 #include <ranges>
 #include <vector>
 
@@ -45,11 +46,9 @@ int get_by_ranges()
         return (num % 3 == 0) || (num % 5 == 0);
     };
 
-    int result = 0;
-    for(int i : iota(1, 1000) | filter(div_by_3_or_5)) {
-        result +=i;
-    }
-    return result;
+    // Sadly, accumulate is not yet range-enabled.
+    auto filtered_range = iota(1, 1000) | filter(div_by_3_or_5);
+    return std::accumulate(filtered_range.begin(), filtered_range.end(), 0);
 }
 
 }
