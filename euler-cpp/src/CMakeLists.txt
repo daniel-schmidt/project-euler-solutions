@@ -1,4 +1,4 @@
-add_library(solutions prob_1.cpp)
+add_library(solutions prob_1.cpp prob_2.cpp)
 
 target_include_directories(solutions PUBLIC ../include)
 
