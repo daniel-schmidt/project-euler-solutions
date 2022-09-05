@@ -8,7 +8,8 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Solution to problem 1:") 
+  (println "Solution to problem 1:")
   (println (prob-1/precalculated))
-  (println (prob-1/filtered)) 
-  (println (prob-2/filtered 4e6)))
+  (println (prob-1/filtered))
+  (println (prob-2/filtered 4e6))
+  (println (prob-2/even_only 4e6)))
